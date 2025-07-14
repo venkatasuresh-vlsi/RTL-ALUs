@@ -1,4 +1,4 @@
-module alu_64bit #(parameter N = 64)(
+module alu_64bit (
      input [63:0] a, b,
 	 input [5:0] sel,
 	 output reg [63:0] result,
@@ -43,7 +43,7 @@ module alu_64bit #(parameter N = 64)(
 			 6'd2 : begin 
 			     mul_result = a * b;
 				 result = mul_result[63:0];
-				 upper_result = mul_result[127:N];
+				 upper_result = mul_result[127:64];
 				end
 			 6'd3 : result = (b !=0) ? a / b: 64'b0;
 			 6'd4 : result = a + 1;
